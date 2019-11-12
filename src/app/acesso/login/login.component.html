@@ -1,0 +1,28 @@
+<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <div class="card-title"></div>
+        <form [formGroup]="formulario" (ngSubmit)="autenticar()">
+            <div class="form-group">
+                <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email" formControlName="email" [email]="true">
+                <p *ngIf="formulario.controls.email.invalid && formulario.controls.email.touched" class="small text-danger text-center">Por Favor, Insira um email válido</p>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Senha" formControlName="senha">
+                <p *ngIf="formulario.controls.senha.invalid && formulario.controls.senha.touched" class="small text-danger text-center">A senha preenchida deve conter pelo menos 6 caracteres</p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm btn-block" [disabled]="this.formulario.invalid">Entrar</button>
+        </form>
+        <div *ngIf="erroLogin !== ''">
+            <hr />
+            <p class="small text-danger text-center">{{msgErroLogin}}</p>
+        </div>
+    </div>
+</div>
+<br />
+<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <p class="card-text">
+            Não tem uma conta? <a href="#" (click)="exibirPainelCadastro()" class="card-link">Cadastre-se</a>
+        </p>
+    </div>
+</div>

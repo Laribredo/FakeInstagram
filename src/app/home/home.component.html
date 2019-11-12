@@ -1,0 +1,15 @@
+<nav class="navbar fixed-top navbar-light bg-white">
+    <div class="container">
+        <div class="logo"></div>
+        <div>
+            <div class="add-post" data-toggle="modal" data-target="#exampleModal"></div>
+            <a href="#" (click)="sair()" style="margin-left:20px;">Sair</a>
+        </div>
+    </div>
+</nav>
+
+<br /><br /><br />
+<div class="container" *ngIf="usuario !== undefined">
+    <app-publicacoes #publicacoes [usuario]='usuario'></app-publicacoes>
+    <app-incluir-publicacao (atualizarTimeline)='atualizarTimeline()' [usuario]='usuario'></app-incluir-publicacao>
+</div>
